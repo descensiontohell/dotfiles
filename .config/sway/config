@@ -21,22 +21,25 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu dmenu_path | rofi -show drun | xargs swaymsg exec --
 
-default_border none
-gaps inner 28
-gaps outer -10
+default_border pixel 4
+gaps inner 8
+gaps outer 0
 smart_borders off
 smart_gaps off
 
+$bind $mod+Shift+q exec rofi -show power-menu -modi "power-menu:~/.local/bin/rofi-power-menu --choices=suspend/reboot/shutdown/logout"
+$bind $mod+Shift+Return exec source /home/elle/.config/swaylock/start.sh
 $bind Print exec grimshot copy area
 $bind ctrl+Print exec grimshot copy output
 
-border_images.focused ~/.config/sway/borders/focused.png
-border_images.focused_inactive ~/.config/sway/borders/focused_inactive.png
-border_images.unfocused ~/.config/sway/borders/unfocused.png
-border_images.urgent ~/.config/sway/borders/urgent.png
+# border_images.focused ~/.config/sway/borders/focused.png
+# border_images.focused_inactive ~/.config/sway/borders/focused_inactive.png
+# border_images.unfocused ~/.config/sway/borders/unfocused.png
+# border_images.urgent ~/.config/sway/borders/urgent.png
 
-set $color_active #23a9d5
-set $color_inactive #ccccb5
+set $color_active #a4b6ff
+# set $color_active #ff4161
+set $color_inactive #464b61
 #client.background n/a $color_active n/a
 client.focused $color_active $color_active $color_active $color_active $color_active 
 client.focused_inactive $color_inactive $color_inactive $color_inactive $color_inactive $color_inactive 
@@ -47,12 +50,23 @@ client.focused_inactive $color_inactive $color_inactive $color_inactive $color_i
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /home/elle/Downloads/papers/wallpapers-main/misc/comfy-home.png fill
+output * bg /home/elle/Downloads/intersection_blur.jpg fill
 #
 # Example configuration:
 #
-   output HDMI-A-1 resolution 1440x900 position 1440,0
-   output HDMI-A-1 max_render_time 6
+   output DP-1 resolution 1440x900 position 0,0
+   output DP-1 max_render_time 13
+   # output DP-1 resolution 1366x768
+   # workspace 1 output HDMI-A-1
+   # workspace 2 output HDMI-A-1
+   # workspace 3 output HDMI-A-1
+   # workspace 4 output HDMI-A-1
+   # workspace 5 output HDMI-A-1
+   # workspace 6 output HDMI-A-1
+   # workspace 7 output HDMI-A-1
+   # workspace 8 output HDMI-A-1
+   # workspace 9 output DP-1
+   # workspace 10 output DP-1
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -75,12 +89,12 @@ client.focused_inactive $color_inactive $color_inactive $color_inactive $color_i
 #
    input * {
        xkb_layout "us,ru"
-       xkb_options grp:sclk_toggle
+       xkb_options grp:alt_shift_toggle
        accel_profile "flat"
        pointer_accel 0
-       scroll_factor 1.5
-       repeat_delay 225
-       repeat_rate 50
+       scroll_factor 1.7
+       repeat_delay 200
+       repeat_rate 80
    }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -110,7 +124,7 @@ client.focused_inactive $color_inactive $color_inactive $color_inactive $color_i
     $bind $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    $bind $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    # $bind $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -219,8 +233,10 @@ $bind $mod+ctrl+$right resize grow width 100px
 #     swaybar_command waybar
 # }
 
+exec "~/.config/waybar/launch-waybar"
 exec autotiling
-exec export _JAVA_AWT_WM_NONREPARENTING=1
+exec "export _JAVA_AWT_WM_NONREPARENTING=1"
+exec "wmname LG3D"
 exec "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 

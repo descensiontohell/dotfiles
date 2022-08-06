@@ -1,16 +1,19 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    /* font-family: Iosevka Nerd Font;*/
-    font-family: Iosevka Nerd Font; 
-    font-size: 13px;
-    border-radius: 0px;
+    /* font-family: Iosevka Nerd Font; */
+    /* font-family: Noto Sand Display;  */
+    /* font-family: Source Han Sans KR;  */
+    font-family: DejaVu Sans Book; 
+    /* font-family: Iosevka;  */
+    font-size: 12px;
+    /* border-radius: 10.5px; */
 }
 
 window#waybar {
     /*background-color: rgba(43, 48, 59, 0.5);*/
     /*border-bottom: 30px solid rgba(100, 114, 125, 0.5);*/
     /*background-color: rgba(0, 0, 0, 0.3);*/
-    color: #ccccb5;
+    color: #dde5ed;
     transition-property: background-color;
     transition-duration: .5s;
     background-color: transparent;
@@ -18,9 +21,8 @@ window#waybar {
 
 window > box {
   margin-top: 8px;
-  margin-bottom: 8px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: 2px solid #ccccb5;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 4px solid #464b61;
 }
 
 window#waybar.hidden {
@@ -37,7 +39,7 @@ window#waybar.solo {
 */
 
 window#waybar.termite {
-    background-color: #3F3F3F;
+    background-color: #ffffff;
 }
 
 window#waybar.chromium {
@@ -48,7 +50,7 @@ window#waybar.chromium {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #bababa;
+    color: #dde5ed;
     /* Use box-shadow instead of border so the text isn't offset */
     /*box-shadow: inset 0 -3px transparent;*/
     /* Avoid rounded borders under each workspace name */
@@ -64,8 +66,8 @@ window#waybar.chromium {
 
 #workspaces button.focused {
     /*background-color: #FFFF7D;*/
-    color: #ccccb5;
-    box-shadow: inset 0 -3px #ccccb5;
+    color: #dde5ed;
+    box-shadow: inset 0 -3px #dde5ed;
 }
 
 #workspaces button.urgent {
@@ -87,18 +89,21 @@ window#waybar.chromium {
 #network,
 #pulseaudio,
 #custom-media,
+#custom-weather,
+#sway-language,
 #tray,
 #mode,
 #idle_inhibitor,
 #mpd {
     padding: 0 10px;
-    color: #e5f7ef;
+    color: #ffffff;
     background-color: transparent;
+    /* min-width: 30px; */
 }
 
 #window,
 #workspaces {
-    margin: 0 4px;
+    /* margin: 0 4px; */
 }
 
 /* If workspaces is the leftmost module, omit left margin */

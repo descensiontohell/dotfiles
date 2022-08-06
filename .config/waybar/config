@@ -1,19 +1,26 @@
 {
     // "layer": "top", // Waybar at top layer
-    "position": "bottom", // Waybar position (top|bottom|left|right)
-    //"height": 42, // Waybar height (to be removed for auto height)
-    //"width": 1424, // Waybar width
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 40, // Waybar height (to be removed for auto height)
+    "width": 1424, // Waybar width
     //"margin": 30,
+    // "output": "HDMI-A-1",
     
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "sway/language", "clock", "tray"],
+    "modules-right": ["cpu", "memory", "pulseaudio", "custom/weather", "sway/language", "clock", "tray"],
     // Modules configuration
 
+     "sway/window": {
+         "format": "{}",
+         //"rewrite": {
+         //    "(.*) - Google Chrome": "Chrome",
+         //  },
+       },
 
      "sway/language": {
-         "format": "{shortDescription}",
+         "format": "⠀{shortDescription}⠀",
      },
 
 
@@ -102,13 +109,15 @@
 
 
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+        "format": "{usage}% CPU",
+        "tooltip": false,
+        "interval": 1
     },
 
 
     "memory": {
-        "format": "{percentage}% "
+        "format": "{percentage}% MEM",
+        "interval": 1
     },
 
 
@@ -162,7 +171,7 @@
 
     "pulseaudio": {
         "scroll-step": 2, // %, can be a float
-        "format": "{volume}% {icon}",
+        "format": "{volume}% VOL",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
@@ -192,6 +201,12 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
+    },
+
+    "custom/weather": {
+        "format": " {}",
+        "exec": "curl wttr.in/Подольск?format=\"%c%t\"",
+        "interval": 60
+      }
 }
 

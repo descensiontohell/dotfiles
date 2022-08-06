@@ -9,7 +9,7 @@
    id="svg5"
    inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
    sodipodi:docname="circle.svg"
-   inkscape:export-filename="../borders/urgent.png"
+   inkscape:export-filename="../borders/focused.png"
    inkscape:export-xdpi="2.54"
    inkscape:export-ydpi="2.54"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -28,10 +28,10 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.5"
-     inkscape:cx="23"
-     inkscape:cy="386"
+     inkscape:cx="21"
+     inkscape:cy="391"
      inkscape:window-width="1404"
-     inkscape:window-height="864"
+     inkscape:window-height="822"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -60,12 +60,12 @@
      inkscape:groupmode="layer"
      id="layer1">
     <ellipse
-       style="opacity:1;fill:#242932;fill-opacity:1;stroke:#ce3847;stroke-width:75.9037;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       style="opacity:1;fill:#242932;fill-opacity:1;stroke:#079eff;stroke-width:59.8654;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
        id="path258"
-       cx="105"
-       cy="104.99999"
-       rx="67.048149"
-       ry="67.048141" />
+       cx="105.00001"
+       cy="104.99998"
+       rx="75.067307"
+       ry="75.067284" />
     <ellipse
        style="fill:#242932;fill-opacity:1;stroke-width:49.9999;stroke-dasharray:none"
        id="path1642"
