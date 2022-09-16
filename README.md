@@ -1,6 +1,6 @@
 # dotfiles
 
-dotfiles that I used for some time on Arch Linux + sway-borders
+dotfiles that I'm using now with i3
 
-![image](https://user-images.githubusercontent.com/64037726/183259061-72d5cdae-c818-4f39-bdc1-d8fc4bc7dc79.png)
+![image](https://user-images.githubusercontent.com/64037726/190717732-416426b9-3357-4fd9-bc45-cf48c023368e.png)
 
