@@ -1,0 +1,152 @@
+set $mod Mod4
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+# exec_always --no-startup-id /home/elle/.config/polybar/launch
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
+
+# pixel 5
+# default_border pixel 5 
+for_window [class=".*"] border None
+# smart_gaps yes
+gaps inner 8
+gaps outer 0
+gaps top -8
+# gaps bottom -8
+
+for_window [class="firefox"] move container to workspace 2
+for_window [class="Discord"] move container to workspace 1
+for_window [class="SoundWireServer"] move container to workspace 10
+
+set $color_active #23a9d5
+set $color_inactive #333333
+
+client.focused $color_active $color_active $color_active $color_active $color_active
+client.focused_inactive $color_inactive $color_inactive $color_inactive $color_inactive $color_inactive
+client.unfocused $color_inactive $color_inactive $color_inactive $color_inactive $color_inactive
+
+#exec --no-startup-id dex --autostart --environment i3
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id nm-applet
+
+floating_modifier $mod
+
+bindsym --release --whole-window button4 nop
+bindsym --release --whole-window button5 nop
+
+# bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty # +kitten themes --reload-in=all Catppuccin-Frappe
+bindsym $mod+q kill
+bindsym $mod+Shift+q exec rofi -show power-menu -modi "power-menu:~/.local/bin/rofi-power-menu --choices=suspend/reboot/shutdown/logout"
+bindsym Print exec flameshot gui
+bindsym $mod+w exec rofi -show drun
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+b split b
+bindsym $mod+v split v
+
+bindsym $mod+r fullscreen toggle
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+# bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+bindsym $mod+Shift+e move scratchpad
+bindsym $mod+e scratchpad show
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $w1 a
+set $w2 s
+set $w3 d
+set $w4 f
+set $w5 g
+set $w6 y
+set $w7 u
+set $w8 i
+set $w9 o
+set $w10 p
+
+# switch to workspace
+bindsym $mod+$w1 workspace number 1
+bindsym $mod+$w2 workspace number 2
+bindsym $mod+$w3 workspace number 3
+bindsym $mod+$w4 workspace number 4
+bindsym $mod+$w5 workspace number 5
+bindsym $mod+$w6 workspace number 6
+bindsym $mod+$w7 workspace number 7
+bindsym $mod+$w8 workspace number 8
+bindsym $mod+$w9 workspace number 9
+bindsym $mod+$w10 workspace number 10
+
+# move focused container to workspace
+bindsym $mod+Shift+$w1 move container to workspace number 1
+bindsym $mod+Shift+$w2 move container to workspace number 2
+bindsym $mod+Shift+$w3 move container to workspace number 3
+bindsym $mod+Shift+$w4 move container to workspace number 4
+bindsym $mod+Shift+$w5 move container to workspace number 5
+bindsym $mod+Shift+$w6 move container to workspace number 6
+bindsym $mod+Shift+$w7 move container to workspace number 7
+bindsym $mod+Shift+$w8 move container to workspace number 8
+bindsym $mod+Shift+$w9 move container to workspace number 9
+bindsym $mod+Shift+$w10 move container to workspace number 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+
+bindsym $mod+ctrl+$left resize shrink width 10 px or 10 ppt
+bindsym $mod+ctrl+$down resize grow height 10 px or 10 ppt
+bindsym $mod+ctrl+$up resize shrink height 10 px or 10 ppt
+bindsym $mod+ctrl+$right resize grow width 10 px or 10 ppt
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+# bar {
+#         status_command polybar
+# }
+
+exec "xrandr -s 1440x900 &"
+exec_always "setxkbmap -model pc104 -layout us,ru -option grp:alt_shift_toggle &"
+exec_always "xset r rate 225 80 &"
+exec_always "xinput --set-prop 'E-Signal USB Gaming Mouse' 'libinput Accel Profile Enabled' 0, 1 &"
+exec "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
+exec "autotiling &"
+exec "imwheel -b '45' &"
+exec "feh --bg-fill ~/Documents/stars.jpg &"
+exec "picom &"
+exec "~/.config/i3/launch_xborder.sh &"
+exec "~/.config/polybar/launch &"
+exec "firefox &"
+exec "SoundWireServer &"
+exec "discord &"
+exec "xset dpms 0 0 1200 &"

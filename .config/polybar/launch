@@ -1,0 +1,12 @@
+#!/bin/bash
+
+CONFIG_FILES="$HOME/.config/polybar/config.ini"
+
+trap "killall polybar" EXIT
+
+while true; do
+    killall polybar
+    polybar &
+    inotifywait -e create,modify $CONFIG_FILES
+    killall polybar
+done
